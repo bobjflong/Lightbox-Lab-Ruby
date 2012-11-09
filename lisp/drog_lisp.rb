@@ -25,7 +25,7 @@ class LispMaker < Whittle::Parser
     r["(", :mul, :expr, :expr, ")"].as { |_,_,n1,n2,_| n1 * n2 }
     r["(", :sub, :expr, :expr, ")"].as { |_,_,n1,n2,_| n1 - n2 }
     r["(", :let, :definition, :expr].as { |_,_,_,n| n }
-    r["(", :get, :name, ")"].as { |_,_,n,_| v = $symbol_table[n]; v }
+    r["(", :get, :name, ")"].as { |_,_,n,_| $symbol_table[n] }
     r[]
   end
 
